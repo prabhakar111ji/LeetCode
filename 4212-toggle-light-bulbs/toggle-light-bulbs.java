@@ -1,5 +1,6 @@
 class Solution {
     public List<Integer> toggleLightBulbs(List<Integer> bulbs) {
+        if(bulbs.isEmpty())return new ArrayList<>();
         int[] f = new int[101];
         List<Integer> ans = new ArrayList<>();
         for( int b:bulbs){
