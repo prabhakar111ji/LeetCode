@@ -4,7 +4,6 @@ class Solution {
         for(int i = 0;i<nums.length;i++){
             if(nums[i]>nums[(i+1)%nums.length])c++;
         }
-        if(c<=1)return true;
-        return false;
+        return c<=1;
     }
 }
