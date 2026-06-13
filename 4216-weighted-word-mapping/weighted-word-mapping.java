@@ -1,5 +1,5 @@
 class Solution {
-    char[] ch = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    // char[] ch = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     public String mapWordWeights(String[] words, int[] weights) {
         int n = words.length, m = weights.length;
         StringBuffer sb = new StringBuffer();
@@ -11,7 +11,7 @@ class Solution {
             }
             sum%=26;
             System.out.println(sum);
-            sb.append(ch[26-sum-1]);
+            sb.append((char)('z'-sum));
         }
         return sb.toString();
     }
