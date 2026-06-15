@@ -1,22 +1,19 @@
 class Solution {
-    public List<List<Integer>> combinationSum(int[] c, int t) {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> ls = new ArrayList<>();
-        backtrack(0, c, t, ans, ls, 0);
+        List<Integer>ls = new ArrayList<>();
+        f(candidates, target, 0, ans, ls, 0);
         return ans;
-
     }
-    public void backtrack(int i, int[] c, int t, List<List<Integer>> ans, List<Integer> ls, int sum){
-        if(sum == t){
-            ans.add(new ArrayList<>(ls));
+    void f(int[] candidates, int target, int idx,List<List<Integer>> ans, List<Integer> ls, int sum){
+        if(sum == target){
+            ans.add(new ArrayList<Integer>(ls));
             return;
         }
-        if(i == c.length || sum>t)return;
-        
-        ls.add(c[i]);
-        backtrack(i, c, t, ans, ls, sum+c[i]);
+        if(idx == candidates.length || sum>target)return;
+        ls.add(candidates[idx]);
+        f(candidates, target, idx, ans, ls, sum+candidates[idx]);
         ls.remove(ls.size()-1);
-        backtrack(i+1, c, t, ans, ls, sum);
-        
+        f(candidates, target, idx +1, ans,ls, sum);
     }
 }
